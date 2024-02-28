@@ -1,3 +1,3 @@
-# ConfirmPracticeRestart
+# Confirm Practice/Restart
 
-This is where she makes a mod.
+Shows a confirmation menu when you try to practice/restart/full restart.
