@@ -6,6 +6,7 @@
 using namespace geode::prelude;
 class $modify(PauseLayer) {  
 	bool r = false;
+	bool o = false;
 
 	// Practice
 	void onPracticeMode(CCObject* sender) {
@@ -13,18 +14,22 @@ class $modify(PauseLayer) {
             PauseLayer::onPracticeMode(sender);
             return;
         }
-		geode::createQuickPopup(
-			"Practice",
-			"Are you sure you want to <cg>practice</c>?",
-			"Cancel", "Practice",			
-			[this, sender](auto, bool btn2) {
-				if (btn2) {
-					this->m_fields->r = true;
-					this->onPracticeMode(sender);
-					this->m_fields->r = false;
+		if (!o) {
+			o = true;
+			geode::createQuickPopup(
+				"Practice",
+				"Are you sure you want to <cg>practice</c>?",
+				"Cancel", "Practice",			
+				[this, sender](auto, bool btn2) {
+					o = false;
+					if (btn2) {
+						this->m_fields->r = true;
+						this->onPracticeMode(sender);
+						this->m_fields->r = false;
+					}
 				}
-			}
-		);
+			);
+		}
 	} 
 
 	// Restart
@@ -33,18 +38,22 @@ class $modify(PauseLayer) {
             PauseLayer::onRestart(sender);
             return;
         }
-		geode::createQuickPopup(
-			"Restart",
-			"Are you sure you want to <cr>restart</c>?",
-			"Cancel", "Restart",
-			[this, sender](auto, bool btn2) {
-				if (btn2) {
-					this->m_fields->r = true;
-					this->onRestart(sender);
-					this->m_fields->r = false;
+		if (!o) {
+			o = true;
+			geode::createQuickPopup(
+				"Restart",
+				"Are you sure you want to <cr>restart</c>?",
+				"Cancel", "Restart",
+				[this, sender](auto, bool btn2) {
+					o = false;
+					if (btn2) {
+						this->m_fields->r = true;
+						this->onRestart(sender);
+						this->m_fields->r = false;
+					}
 				}
-			}
-		);
+			);
+		}
 	} 
 
 	// Full Restart
@@ -53,17 +62,21 @@ class $modify(PauseLayer) {
             PauseLayer::onRestartFull(sender);
             return;
         }
-		geode::createQuickPopup(
-			"Full Restart",
-			"Are you sure you want to <cr>full restart</c>?\n<cy>This will reset checkpoints\nand persistent item IDs.</c>",
-			"Cancel", "Restart",
-			[this, sender](auto, bool btn2) {
-				if (btn2) {
-					this->m_fields->r = true;
-					this->onRestartFull(sender);
-					this->m_fields->r = false;
+		if (!o) {
+			o = true;
+			geode::createQuickPopup(
+				"Full Restart",
+				"Are you sure you want to <cr>full restart</c>?\n<cy>This will reset checkpoints\nand persistent item IDs.</c>",
+				"Cancel", "Restart",
+				[this, sender](auto, bool btn2) {
+					o = false;
+					if (btn2) {
+						this->m_fields->r = true;
+						this->onRestartFull(sender);
+						this->m_fields->r = false;
+					}
 				}
-			}
-		);
+			);
+		}
 	} 
 };
