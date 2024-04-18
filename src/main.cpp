@@ -10,7 +10,7 @@ class $modify(PauseLayer) {
 
 	// Practice
 	void onPracticeMode(CCObject* sender) {
-		if (PlayLayer::get()->m_isPracticeMode || m_fields->r) {
+		if (PlayLayer::get()->m_isPracticeMode || m_fields->r || Mod::get()->getSettingValue<bool>("practice") == false || Mod::get()->getSettingValue<bool>("enable") == false) {
             PauseLayer::onPracticeMode(sender);
             return;
         }
@@ -34,7 +34,7 @@ class $modify(PauseLayer) {
 
 	// Restart
 		void onRestart(CCObject* sender) {
-		if (m_fields->r) {
+		if (m_fields->r || Mod::get()->getSettingValue<bool>("restart") == false || Mod::get()->getSettingValue<bool>("enable") == false) {
             PauseLayer::onRestart(sender);
             return;
         }
@@ -58,7 +58,7 @@ class $modify(PauseLayer) {
 
 	// Full Restart
 		void onRestartFull(CCObject* sender) {
-		if (m_fields->r) {
+		if (m_fields->r || Mod::get()->getSettingValue<bool>("fullrestart") == false || Mod::get()->getSettingValue<bool>("enable") == false) {
             PauseLayer::onRestartFull(sender);
             return;
         }
