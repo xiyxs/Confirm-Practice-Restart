@@ -1,5 +1,5 @@
 {
-	"geode": "2.0.0-beta.23",
+	"geode": "2.0.0-beta.25",
 	"gd": "2.204",
 	"version": "v1.0.2",
 	"id": "xiyxs.confirmpracticerestart",
@@ -16,6 +16,12 @@
 		"practice": {
 			"name": "Enable Practice Menu",
 			"description": "Enables the confirm practice menu.",
+			"type": "bool",
+			"default": true
+		},
+		"quit": {
+			"name": "Enable Quit Menu",
+			"description": "Enables the confirm quit menu.",
 			"type": "bool",
 			"default": true
 		},
